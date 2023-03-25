@@ -5,11 +5,14 @@ controller.getAll = (req,res)=> {
     let ids = '('+req.query.category+')'
     req.getConnection((error, conn)=>{
         if(error) throw error;
-        conn.query(`
+        conn.query(req.query.category ? 
+            `
             select product.*
             from product_category
             join product on product.id = product_category.product_id
-            where product_category.category_id in ${ids}`
+            where product_category.category_id in ${ids}
+            ` :
+            'select * from product'
         ,(err,results,fields)=>{
             if(err) throw error;
             res.send(results)
