@@ -3,10 +3,10 @@ import controller from "../controllers/categories.js";
 
 const router = Express.Router();
 
-router.get('/', controller.getAll);
-router.get('/:id', controller.get);
+router.get('/categories', controller.getAll);
+router.get('/categories/:id', controller.get);
 router.post('/categories', controller.post);
-router.delete('/:id', controller.delete);
-router.put('/:id', controller.put);
+router.delete('/categories/:id', controller.delete);
+router.put('/categories:id', controller.put);
 
 export default router;
