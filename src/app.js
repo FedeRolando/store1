@@ -1,5 +1,5 @@
 import express from "express";
-import mysql from "mysql"
+import mysql from "mysql2"
 import myConnection from "express-myconnection";
 //import dotenv from "dotenv";
 import routes from "./routes/index.js"
