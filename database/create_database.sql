@@ -109,9 +109,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `store1`.`catogory`
+-- Table `store1`.`category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `store1`.`catogory` (
+CREATE TABLE IF NOT EXISTS `store1`.`category` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -119,13 +119,13 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `store1`.`product_has_catogory`
+-- Table `store1`.`product_category`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `store1`.`product_has_catogory` (
+CREATE TABLE IF NOT EXISTS `store1`.`product_has_category` (
   `product_id` INT NOT NULL,
-  `catogory_id` INT NOT NULL,
-  PRIMARY KEY (`product_id`, `catogory_id`),
-  INDEX `fk_product_has_catogories_catogories1_idx` (`catogory_id` ASC) VISIBLE,
+  `category_id` INT NOT NULL,
+  PRIMARY KEY (`product_id`, `category_id`),
+  INDEX `fk_product_has_catogories_catogories1_idx` (`category_id` ASC) VISIBLE,
   INDEX `fk_product_has_catogories_product1_idx` (`product_id` ASC) VISIBLE,
   CONSTRAINT `fk_product_has_catogories_product1`
     FOREIGN KEY (`product_id`)
@@ -133,8 +133,8 @@ CREATE TABLE IF NOT EXISTS `store1`.`product_has_catogory` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_product_has_catogories_catogories1`
-    FOREIGN KEY (`catogory_id`)
-    REFERENCES `store1`.`catogory` (`id`)
+    FOREIGN KEY (`category_id`)
+    REFERENCES `store1`.`category` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
